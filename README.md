@@ -1,3 +1,4 @@
+
 ## SpartanGuide
 
 ## Title 
@@ -14,11 +15,11 @@ Whether you’re navigating hidden caves, hiking scenic trails, snorkeling cryst
 > SpartanGuide isn’t just about travel, it’s about community, discovery, and stepping outside your comfort zone with people you can trust.
 
 ## App Functions 
-1. Customer (Dylen York):
-    1. Create/modify customer profile - <how will your app do this?>
-    2. View available services - <how will your app do this?>
-    3. Subscribe to available services - <how will your app do this?>
-    4. Write reviews for subscribed services - <how will your app do this?>
+1. Customer (Dylan York):
+    1. Create/modify customer profile - Register as a customer.
+    2. View available services - Connects customers to guides to go outdoor on anventures>.
+    3. Subscribe to available services - Monthly subscription to go tour guides.
+    4. Write reviews for subscribed services - Review guides on experiene and skill
 2. Provider (Taif Shaker):
     1. Create/modify/remove provider profile - Register as a guide.
     2. Create services - Post outdoor activity type to guide spartans.
@@ -29,3 +30,4 @@ Whether you’re navigating hidden caves, hiking scenic trails, snorkeling cryst
     2. Moderate services - 
     3. Moderate reviews - 
     4. View usage statistics - 
+
