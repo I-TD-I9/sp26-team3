@@ -47,7 +47,7 @@ SpartanGuide is the ultimate adventure companion for UNCG students ready to expl
   Acceptance:
 
   Scenario: Accessing downloaded content
-    Given: I have previously downloaded the "London" city pack W 
+    Given: I have previously downloaded the app wanted a map
     When:  I lose cellular data or enter Airplane Mode
     Then:  I can still view the map and read text-based guides.
   
