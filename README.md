@@ -12,6 +12,7 @@
 ## Description 
 > SpartanGuide is the ultimate adventure companion for UNCG students ready to explore beyond campus. Built by Spartans, for Spartans, the app connects students with experienced guides who lead safe and exciting adventures, especially the kind that are best experienced with someone who knows the way.
 Whether you’re navigating hidden caves, hiking scenic trails, snorkeling crystal-clear waters, carving fresh powder on skis, or tackling challenging mountain climbs, SpartanGuide makes it easy to find the right guide for the journey
+
 > SpartanGuide isn’t just about travel, it’s about community, discovery, and stepping outside your comfort zone with people you can trust.
 
 ## App Functions 

@@ -53,24 +53,24 @@ SpartanGuide is the ultimate adventure companion for UNCG students ready to expl
   
 
 ### 2.2 Provider Stories
-- **US‑PROV‑001 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+- **US‑PROV‑001 — Create & Publish Tour**  
+  _Story:_ As a provider, I want to create and publish a tour with details so that Spartans can view and register for my adventure.
   _Acceptance:_
   ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
+  Scenario: Provider creates and publishes a new tour.
+    Given the provider is logged into SpartanGuide.
+    When the provider enters valid tour details.
+    Then the tour appears in the student tour listings.
   ```
 
-- **US‑PROV‑002 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+- **US‑PROV‑002 — Manage Student Registrations**  
+  _Story:_ As a provider, I want to view and manage student registrations for my tour so that I can track attendance.
   _Acceptance:_
   ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
+  Scenario: Provider views and manages registrations.
+    Given the provider has at least one published tour.
+    When the provider navigates to the "My Tours" page and selects a specific tour.
+    Then the provider can see a list of registered students.
   ```
 
 ## 3. Non‑Functional Requirements (make them measurable)
