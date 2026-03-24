@@ -30,9 +30,11 @@ public class GuideReview {
 	private String comment;
 
 	@Column(nullable = false, updatable = false)
+	@JsonIgnore
 	private LocalDateTime createdAt;
 
 	@Column(nullable = false)
+	@JsonIgnore
 	private LocalDateTime updatedAt;
 
 	@PrePersist
