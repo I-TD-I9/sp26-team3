@@ -1,112 +1,215 @@
-# Character CRUD API - Spring Boot Demo
+# SpartanGuide API – Spring Boot
 
-REST API for managing character records using Spring Boot, Spring Data JPA, and PostgreSQL
+Simple REST API for managing students, guides, tours, bookings, subscriptions, and reviews using Spring Boot.
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Run the App](#run)
-- [API Endpoints](#api-endpoints)
-- [Demo Video](#demo-video)
-
----
-
-## Installation
-
-### Prerequisites
+## Requirements
 
 - Java 25
-- Maven Wrapper (`mvnw` on Mac/Linux and `mvnw.cmd` on Windows)
+- Maven Wrapper (mvnw or mvnw.cmd)
+- VS Code (recommended)
 
-### Setup
+## Setup
 
-1. Clone this repository
-2. Open the project folder in VS Code
-3. Install dependencies and build:
+1. Clone the repository
+2. Open the project in VS Code
+3. Build the project
 
- **On Windows**:
+**Windows**
+```
+mvnw.cmd clean install
+```
 
-   ```cmd
-   mvnw.cmd clean install
-   ```
+**Mac / Linux**
+```
+./mvnw clean install
+```
 
-   **On Mac/Linux**:
+## Run the Application
 
-   ```bash
-   ./mvnw clean install
-   ```
+1. Open main application class
+2. Click Run → Start Debugging
 
----
+The API will run at:
 
-## Run
+```
+http://localhost:8080
+```
 
-### VS Code
+## API Base URL
 
-1. Open `CurdApiApplication.java`
-2. Click **Run --> Start Debugging**
-
----
+```
+http://localhost:8080/api
+```
 
 ## API Endpoints
 
-Base path: `http://localhost:8080/api/characters`
+### Students
 
-### Character fields
+**Base URL:** `/api/students`
 
-- `characterId` (Long, auto-generated)
-- `name` (String, required)
-- `description` (String, required)
-- `universe` (String, required)
-- `species` (String, required)
+- **Get all students** — `GET /api/students`
+- **Get student by ID** — `GET /api/students/{id}`
+- **Get student by email** — `GET /api/students/email/{email}`
+- **Create student** — `POST /api/students`
 
-### 1) Get all characters
-
-`GET /api/characters`
-
-### 2) Get character by ID
-
-`GET /api/characters/{id}`
-
-- `200 OK` if found
-- `404 Not Found` if missing
-
-### 3) Create character
-
-`POST /api/characters`
-
-Example body:
-
+Example:
 ```json
 {
-  "name": "Batman",
-  "description": "Dark Knight",
-  "universe": "DC",
-  "species": "Human"
+  "name": "Dylan Yank",
+  "email": "dylan@example.com",
+  "password": "MyUpdatedPass123!",
+  "role": "STUDENT",
+  "status": "ACTIVE",
+  "major": "Software Engineering"
 }
 ```
 
-### 4) Update character
+- **Update student** — `PUT /api/students/{id}`
+- **Delete student** — `DELETE /api/students/{id}`
 
-`PUT /api/characters/{id}`
+### Guides
 
-### 5) Delete character
+**Base URL:** `/api/guides`
 
-`DELETE /api/characters/{id}`
+- **Get all guides** — `GET /api/guides`
+- **Get guide by ID** — `GET /api/guides/{id}`
+- **Get guide by email** — `GET /api/guides/email/{email}`
+- **Create guide** — `POST /api/guides`
 
-- `204 No Content` if deleted
-- `404 Not Found` if missing
+Example:
+```json
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@sjsu.edu",
+  "password": "securePassword123",
+  "role": "GUIDE",
+  "status": "ACTIVE",
+  "bio": "Experienced campus guide."
+}
+```
 
-### 6) Get by category
+- **Update guide** — `PUT /api/guides/{id}`
+- **Delete guide** — `DELETE /api/guides/{id}`
 
-`GET /api/characters/category/{category}?value={value}`
+### Tours
 
-- Supported categories: `universe`, `species`
-- Invalid category returns `400 Bad Request`
+**Base URL:** `/api/tours`
 
-### 7) Search by name
+- **Get all tours** — `GET /api/tours`
+- **Get tour by ID** — `GET /api/tours/{id}`
+- **Create tour** — `POST /api/tours`
 
-`GET /api/characters/search?name=substring`
+Example:
+```json
+{
+  "guide": { "guideId": 4 },
+  "title": "Campus Highlights Tour",
+  "location": "San Jose, CA",
+  "description": "Guided campus tour.",
+  "price": 29.99,
+  "capacity": 20,
+  "published": true
+}
+```
 
-## Demo Video
+- **Update tour** — `PUT /api/tours/{id}`
+- **Delete tour** — `DELETE /api/tours/{id}`
 
-https://uncg-my.sharepoint.com/:v:/g/personal/t_shaker_uncg_edu/IQDplQBd5aeySq_QdrqDztu8AacKKnfHKmLQ_q2tNu1z8HM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=3RWhly
+### Subscriptions
+
+**Base URL:** `/api/subscriptions`
+
+- **Get all subscriptions** — `GET /api/subscriptions`
+- **Get subscription by ID** — `GET /api/subscriptions/{id}`
+- **Get by student ID** — `GET /api/subscriptions/student/{id}`
+- **Get by status** — `GET /api/subscriptions/status/{status}`
+- **Create subscription** — `POST /api/subscriptions`
+
+Example:
+```json
+{
+  "planName": "Premium Tour Pack",
+  "status": "ACTIVE",
+  "startDate": "2026-03-20",
+  "endDate": "2027-03-20",
+  "autoRenew": true,
+  "students": [{ "studentId": 1 }]
+}
+```
+
+- **Update subscription** — `PUT /api/subscriptions/{id}`
+- **Delete subscription** — `DELETE /api/subscriptions/{id}`
+
+### Student Reviews (Guide → Student)
+
+**Base URL:** `/api/student-reviews`
+
+- **Get all reviews** — `GET /api/student-reviews`
+- **Get by ID** — `GET /api/student-reviews/{id}`
+- **Get by student** — `GET /api/student-reviews/student/{id}`
+- **Get by guide** — `GET /api/student-reviews/guide/{id}`
+- **Create review** — `POST /api/student-reviews`
+
+Example:
+```json
+{
+  "reviewer": { "guideId": 4 },
+  "student": { "studentId": 1 },
+  "rating": 5,
+  "comment": "Great student."
+}
+```
+
+- **Update review** — `PUT /api/student-reviews/{id}`
+- **Delete review** — `DELETE /api/student-reviews/{id}`
+
+### Guide Reviews (Student → Guide)
+
+**Base URL:** `/api/guide-reviews`
+
+- **Get all reviews** — `GET /api/guide-reviews`
+- **Get by ID** — `GET /api/guide-reviews/{id}`
+- **Get by guide** — `GET /api/guide-reviews/guide/{id}`
+- **Get by student** — `GET /api/guide-reviews/student/{id}`
+- **Create review** — `POST /api/guide-reviews`
+
+Example:
+```json
+{
+  "reviewer": { "studentId": 1 },
+  "guide": { "guideId": 4 },
+  "rating": 5,
+  "comment": "Excellent guide."
+}
+```
+
+- **Update review** — `PUT /api/guide-reviews/{id}`
+- **Delete review** — `DELETE /api/guide-reviews/{id}`
+
+### Bookings
+
+**Base URL:** `/api/bookings`
+
+- **Get all bookings** — `GET /api/bookings`
+- **Get booking by ID** — `GET /api/bookings/{id}`
+- **Get by student** — `GET /api/bookings/student/{id}`
+- **Get by tour** — `GET /api/bookings/tour/{id}`
+- **Create booking** — `POST /api/bookings`
+
+Example:
+```json
+{
+  "student": { "studentId": 1 },
+  "tour": { "tourId": 2 },
+  "paid": true
+}
+```
+
+- **Update booking** — `PUT /api/bookings/{id}`
+- **Delete booking** — `DELETE /api/bookings/{id}`
+
+## Common Actions
+
+- **Book a tour** — `POST /api/bookings`
+- **Subscribe to a plan** — `POST /api/subscriptions`
+- **Leave a review** — `POST /api/guide-reviews`
