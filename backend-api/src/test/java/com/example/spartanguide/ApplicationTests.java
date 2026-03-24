@@ -1,10 +1,10 @@
-package Assigment3.Assigment3;
+package com.example.spartanguide;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Assigment3ApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {

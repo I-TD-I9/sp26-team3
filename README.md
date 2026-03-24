@@ -1,215 +1,34 @@
-# SpartanGuide API – Spring Boot
 
-Simple REST API for managing students, guides, tours, bookings, subscriptions, and reviews using Spring Boot.
+## SpartanGuide
 
-## Requirements
+## Title 
+> SpartanGuid - Explore more. Go farther. Adventure like a Spartan.
 
-- Java 25
-- Maven Wrapper (mvnw or mvnw.cmd)
-- VS Code (recommended)
+## Team Members 
+> Team Member #1 Taif Shaker
 
-## Setup
+> Team Member #2 Dylan York
 
-1. Clone the repository
-2. Open the project in VS Code
-3. Build the project
+## Description 
+> SpartanGuide is the ultimate adventure companion for UNCG students ready to explore beyond campus. Built by Spartans, for Spartans, the app connects students with experienced guides who lead safe and exciting adventures, especially the kind that are best experienced with someone who knows the way.
+Whether you’re navigating hidden caves, hiking scenic trails, snorkeling crystal-clear waters, carving fresh powder on skis, or tackling challenging mountain climbs, SpartanGuide makes it easy to find the right guide for the journey
 
-**Windows**
-```
-mvnw.cmd clean install
-```
+> SpartanGuide isn’t just about travel, it’s about community, discovery, and stepping outside your comfort zone with people you can trust.
 
-**Mac / Linux**
-```
-./mvnw clean install
-```
+## App Functions 
+1. Customer (Dylan York):
+    1. Create/modify customer profile - Register as a customer.
+    2. View available services - Connects customers to guides to go outdoor on anventures>.
+    3. Subscribe to available services - Monthly subscription to go tour guides.
+    4. Write reviews for subscribed services - Review guides on experiene and skill
+2. Provider (Taif Shaker):
+    1. Create/modify/remove provider profile - Register as a guide.
+    2. Create services - Post outdoor activity type to guide spartans.
+    3. View customer statistics - View customer retention.
+    4. Reply to reviews - Reply to feedback.
+3. SysAdmin (the user with the admin role if applicable):
+    1. Manage user access - 
+    2. Moderate services - 
+    3. Moderate reviews - 
+    4. View usage statistics - 
 
-## Run the Application
-
-1. Open main application class
-2. Click Run → Start Debugging
-
-The API will run at:
-
-```
-http://localhost:8080
-```
-
-## API Base URL
-
-```
-http://localhost:8080/api
-```
-
-## API Endpoints
-
-### Students
-
-**Base URL:** `/api/students`
-
-- **Get all students** — `GET /api/students`
-- **Get student by ID** — `GET /api/students/{id}`
-- **Get student by email** — `GET /api/students/email/{email}`
-- **Create student** — `POST /api/students`
-
-Example:
-```json
-{
-  "name": "Dylan Yank",
-  "email": "dylan@example.com",
-  "password": "MyUpdatedPass123!",
-  "role": "STUDENT",
-  "status": "ACTIVE",
-  "major": "Software Engineering"
-}
-```
-
-- **Update student** — `PUT /api/students/{id}`
-- **Delete student** — `DELETE /api/students/{id}`
-
-### Guides
-
-**Base URL:** `/api/guides`
-
-- **Get all guides** — `GET /api/guides`
-- **Get guide by ID** — `GET /api/guides/{id}`
-- **Get guide by email** — `GET /api/guides/email/{email}`
-- **Create guide** — `POST /api/guides`
-
-Example:
-```json
-{
-  "name": "Jane Smith",
-  "email": "jane.smith@sjsu.edu",
-  "password": "securePassword123",
-  "role": "GUIDE",
-  "status": "ACTIVE",
-  "bio": "Experienced campus guide."
-}
-```
-
-- **Update guide** — `PUT /api/guides/{id}`
-- **Delete guide** — `DELETE /api/guides/{id}`
-
-### Tours
-
-**Base URL:** `/api/tours`
-
-- **Get all tours** — `GET /api/tours`
-- **Get tour by ID** — `GET /api/tours/{id}`
-- **Create tour** — `POST /api/tours`
-
-Example:
-```json
-{
-  "guide": { "guideId": 4 },
-  "title": "Campus Highlights Tour",
-  "location": "San Jose, CA",
-  "description": "Guided campus tour.",
-  "price": 29.99,
-  "capacity": 20,
-  "published": true
-}
-```
-
-- **Update tour** — `PUT /api/tours/{id}`
-- **Delete tour** — `DELETE /api/tours/{id}`
-
-### Subscriptions
-
-**Base URL:** `/api/subscriptions`
-
-- **Get all subscriptions** — `GET /api/subscriptions`
-- **Get subscription by ID** — `GET /api/subscriptions/{id}`
-- **Get by student ID** — `GET /api/subscriptions/student/{id}`
-- **Get by status** — `GET /api/subscriptions/status/{status}`
-- **Create subscription** — `POST /api/subscriptions`
-
-Example:
-```json
-{
-  "planName": "Premium Tour Pack",
-  "status": "ACTIVE",
-  "startDate": "2026-03-20",
-  "endDate": "2027-03-20",
-  "autoRenew": true,
-  "students": [{ "studentId": 1 }]
-}
-```
-
-- **Update subscription** — `PUT /api/subscriptions/{id}`
-- **Delete subscription** — `DELETE /api/subscriptions/{id}`
-
-### Student Reviews (Guide → Student)
-
-**Base URL:** `/api/student-reviews`
-
-- **Get all reviews** — `GET /api/student-reviews`
-- **Get by ID** — `GET /api/student-reviews/{id}`
-- **Get by student** — `GET /api/student-reviews/student/{id}`
-- **Get by guide** — `GET /api/student-reviews/guide/{id}`
-- **Create review** — `POST /api/student-reviews`
-
-Example:
-```json
-{
-  "reviewer": { "guideId": 4 },
-  "student": { "studentId": 1 },
-  "rating": 5,
-  "comment": "Great student."
-}
-```
-
-- **Update review** — `PUT /api/student-reviews/{id}`
-- **Delete review** — `DELETE /api/student-reviews/{id}`
-
-### Guide Reviews (Student → Guide)
-
-**Base URL:** `/api/guide-reviews`
-
-- **Get all reviews** — `GET /api/guide-reviews`
-- **Get by ID** — `GET /api/guide-reviews/{id}`
-- **Get by guide** — `GET /api/guide-reviews/guide/{id}`
-- **Get by student** — `GET /api/guide-reviews/student/{id}`
-- **Create review** — `POST /api/guide-reviews`
-
-Example:
-```json
-{
-  "reviewer": { "studentId": 1 },
-  "guide": { "guideId": 4 },
-  "rating": 5,
-  "comment": "Excellent guide."
-}
-```
-
-- **Update review** — `PUT /api/guide-reviews/{id}`
-- **Delete review** — `DELETE /api/guide-reviews/{id}`
-
-### Bookings
-
-**Base URL:** `/api/bookings`
-
-- **Get all bookings** — `GET /api/bookings`
-- **Get booking by ID** — `GET /api/bookings/{id}`
-- **Get by student** — `GET /api/bookings/student/{id}`
-- **Get by tour** — `GET /api/bookings/tour/{id}`
-- **Create booking** — `POST /api/bookings`
-
-Example:
-```json
-{
-  "student": { "studentId": 1 },
-  "tour": { "tourId": 2 },
-  "paid": true
-}
-```
-
-- **Update booking** — `PUT /api/bookings/{id}`
-- **Delete booking** — `DELETE /api/bookings/{id}`
-
-## Common Actions
-
-- **Book a tour** — `POST /api/bookings`
-- **Subscribe to a plan** — `POST /api/subscriptions`
-- **Leave a review** — `POST /api/guide-reviews`
