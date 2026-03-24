@@ -46,9 +46,6 @@ public class SubscriptionService {
 			if (subscriptionDetails.getStudents() != null && !subscriptionDetails.getStudents().isEmpty()) {
 				subscription.setStudents(resolveStudents(subscriptionDetails));
 			}
-			if (subscriptionDetails.getPlanName() != null) {
-				subscription.setPlanName(subscriptionDetails.getPlanName());
-			}
 			if (subscriptionDetails.getStatus() != null) {
 				subscription.setStatus(subscriptionDetails.getStatus());
 			}

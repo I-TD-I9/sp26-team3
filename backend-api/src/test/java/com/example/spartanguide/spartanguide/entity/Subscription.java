@@ -1,24 +1,12 @@
 package com.example.spartanguide.entity;
 
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "subscriptions")
@@ -33,9 +21,6 @@ public class Subscription {
 	@JsonIgnoreProperties({ "subscriptions" })
 	private List<Student> students;
 
-	@Column(nullable = false)
-	private String planName;
-
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private SubscriptionStatus status;
@@ -49,9 +34,11 @@ public class Subscription {
 	private boolean autoRenew;
 
 	@Column(nullable = false, updatable = false)
+	@JsonIgnore
 	private LocalDateTime createdAt;
 
 	@Column(nullable = false)
+	@JsonIgnore
 	private LocalDateTime updatedAt;
 
 	public enum SubscriptionStatus {
@@ -88,14 +75,6 @@ public class Subscription {
 
 	public void setStudents(List<Student> students) {
 		this.students = students;
-	}
-
-	public String getPlanName() {
-		return planName;
-	}
-
-	public void setPlanName(String planName) {
-		this.planName = planName;
 	}
 
 	public SubscriptionStatus getStatus() {
