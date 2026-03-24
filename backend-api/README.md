@@ -24,7 +24,7 @@ mvnw.cmd clean install
 ./mvnw clean install
 ```
 ## 3. UML Class Diagram
-![UML Class Diagram](docs/SpatainGuides.png)
+![UML Class Diagram](SpatainGuides.png)
 
 
 ## Run the Application
