@@ -1,11 +1,24 @@
 package com.example.spartanguide.entity;
 
-import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "subscriptions")
@@ -59,20 +72,6 @@ public class Subscription {
 	}
 
 	public Subscription() {
-	}
-
-	public Subscription(Long subscriptionId, List<Student> students, String planName, SubscriptionStatus status,
-			LocalDate startDate, LocalDate endDate, boolean autoRenew, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
-		this.subscriptionId = subscriptionId;
-		this.students = students;
-		this.planName = planName;
-		this.status = status;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.autoRenew = autoRenew;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 	}
 
 	public Long getSubscriptionId() {

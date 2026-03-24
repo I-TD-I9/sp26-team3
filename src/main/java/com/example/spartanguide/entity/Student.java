@@ -1,10 +1,18 @@
 package com.example.spartanguide.entity;
 
 
-import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.*;
-
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "students")
@@ -19,13 +27,6 @@ public class Student extends User {
 	private List<Subscription> subscriptions;
 
 	public Student() {
-	}
-
-	public Student(Long studentId, String name, String email, String passwordHash, UserRole role, UserStatus status,
-			java.time.LocalDateTime createdAt, java.time.LocalDateTime updatedAt, String major, List<Subscription> subscriptions) {
-		super(studentId, name, email, passwordHash, role, status, createdAt, updatedAt);
-		this.major = major;
-		this.subscriptions = subscriptions;
 	}
 
 	@Transient
