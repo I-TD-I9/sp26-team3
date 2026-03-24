@@ -1,4 +1,4 @@
-package com.example.spartanguide.spartanguide;
+package com.example.spartanguide;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
