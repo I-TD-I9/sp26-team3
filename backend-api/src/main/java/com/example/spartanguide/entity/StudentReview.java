@@ -6,22 +6,22 @@ import com.fasterxml.jackson.annotation.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "guide_reviews")
-public class GuideReview {
+@Table(name = "student_reviews")
+public class StudentReview {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long reviewId;
 
 	@ManyToOne
-	@JoinColumn(name = "reviewer_student_id", nullable = false)
-	@JsonIgnoreProperties({ "subscriptions" })
-	private Student reviewer;
+	@JoinColumn(name = "reviewer_guide_id", nullable = false)
+	@JsonIgnoreProperties({ "tours" })
+	private Guide reviewer;
 
 	@ManyToOne
-	@JoinColumn(name = "guide_id", nullable = false)
-	@JsonIgnoreProperties({ "tours" })
-	private Guide guide;
+	@JoinColumn(name = "student_id", nullable = false)
+	@JsonIgnoreProperties({ "subscriptions" })
+	private Student student;
 
 	@Column(nullable = false)
 	private Integer rating;
@@ -46,14 +46,14 @@ public class GuideReview {
 		updatedAt = LocalDateTime.now();
 	}
 
-	public GuideReview() {
+	public StudentReview() {
 	}
 
-	public GuideReview(Long reviewId, Student reviewer, Guide guide, Integer rating, String comment,
-			LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public StudentReview(Long reviewId, Guide reviewer, Student student, Integer rating,
+			String comment, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.reviewId = reviewId;
 		this.reviewer = reviewer;
-		this.guide = guide;
+		this.student = student;
 		this.rating = rating;
 		this.comment = comment;
 		this.createdAt = createdAt;
@@ -68,20 +68,20 @@ public class GuideReview {
 		this.reviewId = reviewId;
 	}
 
-	public Student getReviewer() {
+	public Guide getReviewer() {
 		return reviewer;
 	}
 
-	public void setReviewer(Student reviewer) {
+	public void setReviewer(Guide reviewer) {
 		this.reviewer = reviewer;
 	}
 
-	public Guide getGuide() {
-		return guide;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setGuide(Guide guide) {
-		this.guide = guide;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 	public Integer getRating() {

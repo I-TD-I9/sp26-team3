@@ -1,18 +1,10 @@
 package com.example.spartanguide.entity;
 
 
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.*;
+
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "students")
@@ -23,10 +15,18 @@ public class Student extends User {
 	private String major;
 
 	@ManyToMany(mappedBy = "students")
-	@JsonIgnoreProperties({ "students" })
+	@JsonIgnoreProperties({ "students", "createdAt", "updatedAt" })
 	private List<Subscription> subscriptions;
 
 	public Student() {
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
 	}
 
 	@Transient
@@ -40,25 +40,17 @@ public class Student extends User {
 		super.setUserId(studentId);
 	}
 
-	@Override
-	@JsonIgnore
-	public Long getUserId() {
-		return super.getUserId();
-	}
-
-	public String getMajor() {
-		return major;
-	}
-
-	public void setMajor(String major) {
-		this.major = major;
-	}
-
 	public List<Subscription> getSubscriptions() {
 		return subscriptions;
 	}
 
 	public void setSubscriptions(List<Subscription> subscriptions) {
 		this.subscriptions = subscriptions;
+	}
+
+	@Override
+	@JsonIgnore
+	public Long getUserId() {
+		return super.getUserId();
 	}
 }
