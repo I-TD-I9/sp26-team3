@@ -23,7 +23,7 @@ mvnw.cmd clean install
 ```
 ./mvnw clean install
 ```
-## 3. UML Class Diagram
+## UML Class Diagram
 ![UML Class Diagram](SpatainGuides.png)
 
 
