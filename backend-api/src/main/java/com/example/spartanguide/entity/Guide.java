@@ -20,13 +20,6 @@ public class Guide extends User {
 	public Guide() {
 	}
 
-	public Guide(Long guideId, String name, String email, String password, UserRole role, UserStatus status,
-			java.time.LocalDateTime createdAt, java.time.LocalDateTime updatedAt, String bio, List<Tour> tours) {
-		super(guideId, name, email, password, role, status, createdAt, updatedAt);
-		this.bio = bio;
-		this.tours = tours;
-	}
-
 	@Transient
 	@JsonProperty("guideId")
 	public Long getGuideId() {

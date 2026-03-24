@@ -44,18 +44,6 @@ public class Tour {
 	public Tour() {
 	}
 
-	public Tour(Long tourId, Guide guide, String title, String description, String location,
-			BigDecimal price, int capacity, boolean published) {
-		this.tourId = tourId;
-		this.guide = guide;
-		this.title = title;
-		this.description = description;
-		this.location = location;
-		this.price = price;
-		this.capacity = capacity;
-		this.published = published;
-	}
-
 	public Long getTourId() {
 		return tourId;
 	}

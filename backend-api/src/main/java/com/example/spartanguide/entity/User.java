@@ -1,6 +1,6 @@
 package com.example.spartanguide.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,9 +19,8 @@ public class User {
 	@Column(nullable = false, unique = true)
 	private String email;
 
-	@Column(nullable = false)
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private String password;
+	@Column(name = "password_hash", nullable = false)
+	private String passwordHash;
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
@@ -32,9 +31,11 @@ public class User {
 	private UserStatus status;
 
 	@Column(nullable = false, updatable = false)
+	@JsonIgnore
 	private LocalDateTime createdAt;
 
 	@Column(nullable = false)
+	@JsonIgnore
 	private LocalDateTime updatedAt;
 
 	public enum UserRole {
@@ -61,12 +62,12 @@ public class User {
 	public User() {
 	}
 
-	public User(Long userId, String name, String email, String password, UserRole role, UserStatus status,
+	public User(Long userId, String name, String email, String passwordHash, UserRole role, UserStatus status,
 			LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
-		this.password = password;
+		this.passwordHash = passwordHash;
 		this.role = role;
 		this.status = status;
 		this.createdAt = createdAt;
@@ -97,12 +98,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
 	public UserRole getRole() {
