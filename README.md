@@ -26,9 +26,5 @@ Whether you’re navigating hidden caves, hiking scenic trails, snorkeling cryst
     2. Create services - Post outdoor activity type to guide spartans.
     3. View customer statistics - View customer retention.
     4. Reply to reviews - Reply to feedback.
-3. SysAdmin (the user with the admin role if applicable):
-    1. Manage user access - 
-    2. Moderate services - 
-    3. Moderate reviews - 
-    4. View usage statistics - 
+
 
