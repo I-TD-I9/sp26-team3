@@ -3,6 +3,7 @@ package com.example.spartanguide.service;
 import com.example.spartanguide.entity.Tour;
 import com.example.spartanguide.repository.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,8 +55,6 @@ public class TourService {
 		tourRepository.deleteById(id);
 	}
 
-	private static final String UPLOAD_DIR = "src/main/resources/static/tour-images/";
-
 	public void saveTourImage(Tour tour, MultipartFile image) {
 		if (image == null || image.isEmpty()) {
 			return;
@@ -65,9 +64,10 @@ public class TourService {
 			if (originalFileName != null && originalFileName.contains(".")) {
 				String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
 				String fileName = String.valueOf(tour.getTourId()) + "." + fileExtension;
-				Path filePath = Paths.get(UPLOAD_DIR + fileName);
+				String uploadDir = new ClassPathResource("static/tour-images/").getFile().getAbsolutePath() + "/";
+				Path filePath = Paths.get(uploadDir + fileName);
 				InputStream inputStream = image.getInputStream();
-				Files.createDirectories(Paths.get(UPLOAD_DIR));
+				Files.createDirectories(Paths.get(uploadDir));
 				Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 				tour.setImagePath(fileName);
 				tourRepository.save(tour);

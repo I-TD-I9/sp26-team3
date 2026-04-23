@@ -3,6 +3,7 @@ package com.example.spartanguide.service;
 import com.example.spartanguide.entity.Guide;
 import com.example.spartanguide.repository.GuideRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -58,8 +59,6 @@ public class GuideService {
 		return guideRepository.findByEmail(email);
 	}
 
-	private static final String UPLOAD_DIR = "src/main/resources/static/profile-pictures/";
-
 	public void saveProfilePicture(Guide guide, MultipartFile profilePicture) {
 		if (profilePicture == null || profilePicture.isEmpty()) {
 			return;
@@ -69,9 +68,10 @@ public class GuideService {
 			if (originalFileName != null && originalFileName.contains(".")) {
 				String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
 				String fileName = guide.getGuideId() + "." + fileExtension;
-				Path filePath = Paths.get(UPLOAD_DIR + fileName);
+				String uploadDir = new ClassPathResource("static/profile-pictures/").getFile().getAbsolutePath() + "/";
+				Path filePath = Paths.get(uploadDir + fileName);
 				InputStream inputStream = profilePicture.getInputStream();
-				Files.createDirectories(Paths.get(UPLOAD_DIR));
+				Files.createDirectories(Paths.get(uploadDir));
 				Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 				guide.setProfilePicturePath(fileName);
 				guideRepository.save(guide);
