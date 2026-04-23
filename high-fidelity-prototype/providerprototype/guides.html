@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Guides | SpartanGuide</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="navbar bg-body-tertiary border-bottom">
+		<div class="container">
+			<a class="navbar-brand fw-semibold" href="index.html">SpartanGuide</a>
+			<ul class="navbar-nav ms-auto flex-row gap-3">
+				<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+				<li class="nav-item"><a class="nav-link active" href="guides.html">Tours</a></li>
+				<li class="nav-item"><a class="nav-link" href="guidecreation.html">Create Guide</a></li>
+				<li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="container-fluid py-4 px-0">
+		<div class="row g-4">
+			<aside class="col-12 col-md-4 col-lg-3">
+				<h1 class="h5 mb-3 ps-3">Available Tours</h1>
+				<div class="nav flex-column flex-nowrap align-items-stretch gap-3 ps-3 pe-2 overflow-auto vh-100"
+					id="guide-tabs" role="tablist" aria-orientation="vertical">
+					<a class="nav-link p-0 w-100 active" id="rock-tab" data-bs-toggle="pill" href="#rock-pane"
+						role="tab" aria-controls="rock-pane" aria-selected="true">
+						<div class="card w-100">
+							<img class="card-img-top"
+								src="https://wncmagazine.com/sites/default/files/tlb_011822_0857.jpg"
+								alt="Rock climbing tour">
+							<div class="card-body">
+								<h5 class="card-title text-body-emphasis">Rock Climbing adventure</h5>
+								<p class="card-text text-body-secondary">A relaxing walk featuring the best sunset views
+									on campus.</p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">Host: Jordan Lee</li>
+								<li class="list-group-item">Rating: 4.8</li>
+								<li class="list-group-item">6:00 PM • Student Union</li>
+							</ul>
+							<div class="card-body">
+								<span class="card-link text-body-secondary">Select to view details</span>
+							</div>
+						</div>
+					</a>
+					<a class="nav-link p-0 w-100" id="hidden-tab" data-bs-toggle="pill" href="#hidden-pane" role="tab"
+						aria-controls="hidden-pane" aria-selected="false">
+						<div class="card w-100">
+							<img class="card-img-top"
+								src="https://caves.org/wp-content/uploads/2021/10/Eginoire_VoidsExpedition2020_67.jpg"
+								alt="Hidden campus corner">
+							<div class="card-body">
+								<h5 class="card-title text-body-emphasis">Hidden Corners Tour</h5>
+								<p class="card-text text-body-secondary">Explore lesser-known study spots and quiet
+									courtyards.</p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">Host: Priya Shah</li>
+								<li class="list-group-item">Rating: 4.6</li>
+								<li class="list-group-item">2:30 PM • Library Steps</li>
+							</ul>
+							<div class="card-body">
+								<span class="card-link text-body-secondary">Select to view details</span>
+							</div>
+						</div>
+					</a>
+					<a class="nav-link p-0 w-100" id="freshman-tab" data-bs-toggle="pill" href="#freshman-pane"
+						role="tab" aria-controls="freshman-pane" aria-selected="false">
+						<div class="card w-100">
+							<img class="card-img-top"
+								src="https://media.cntraveler.com/photos/664cf4aa7e18a346becc572d/master/w_1024%2Cc_limit/Fiji_GettyImages-1252162450.jpg"
+								alt="Campus essentials tour">
+							<div class="card-body">
+								<h5 class="card-title text-body-emphasis">Freshman Essentials</h5>
+								<p class="card-text text-body-secondary">A quick tour of the main academic buildings and
+									dining options.</p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">Host: Miguel Torres</li>
+								<li class="list-group-item">Rating: 4.9</li>
+								<li class="list-group-item">10:00 AM • Campus Fountain</li>
+							</ul>
+							<div class="card-body">
+								<span class="card-link text-body-secondary">Select to view details</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</aside>
+			<section class="col-12 col-md-8 col-lg-9">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-10 col-xl-8">
+						<div class="tab-content" id="guide-tab-content">
+							<div class="tab-pane fade show active" id="rock-pane" role="tabpanel"
+								aria-labelledby="rock-tab" tabindex="0">
+								<div class="card shadow-sm" id="guideDetails">
+									<div class="card-header bg-body-tertiary">
+										<div class="d-flex align-items-center gap-3">
+											<a href="profile.html">
+												<img src="https://cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_1280.png"
+													alt="Guide profile" class="rounded-circle" width="56" height="56">
+											</a>
+											<div>
+												<p class="mb-1 small text-body-secondary">Guide host</p>
+												<h2 class="h6 mb-1">Jordan Lee</h2>
+												<p class="mb-0 small text-body-secondary">Senior tour guide focused on
+													community and student life.</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="row g-4">
+											<div class="col-12 col-lg-5">
+												<div id="carouselExampleInterval" class="carousel slide"
+													data-bs-ride="carousel">
+													<div class="carousel-inner">
+														<div class="carousel-item active" data-bs-interval="10000">
+															<img src="https://wncmagazine.com/sites/default/files/tlb_011822_0857.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item" data-bs-interval="2000">
+															<img src="https://wncmagazine.com/sites/default/files/tlb_011822_0857.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item">
+															<img src="https://wncmagazine.com/sites/default/files/tlb_011822_0857.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+													</div>
+													<button class="carousel-control-prev" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+														<span class="carousel-control-prev-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Previous</span>
+													</button>
+													<button class="carousel-control-next" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+														<span class="carousel-control-next-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Next</span>
+													</button>
+												</div>
+											</div>
+											<div class="col-12 col-lg-7">
+												<h3 class="h4 mb-2">Rock Climbing Adventure</h3>
+												<p class="text-body-secondary">Experience the thrill of rock climbing
+													with expert guidance and safety measures in place.</p>
+												<ul class="list-group mb-3">
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Time</span><span>6:00 PM</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Duration</span><span>75 minutes</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Location</span><span>Student Union</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Students registered</span><span>14</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Capacity</span><span>20</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Open seats</span><span>6</span>
+													</li>
+												</ul>
+												<button class="btn btn-primary" type="button">Register</button>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-body-tertiary">
+										<h3 class="h6 mb-2">Reviews</h3>
+										<ul class="list-group">
+											<li class="list-group-item">Great pacing and the sunset stops were
+												beautiful.</li>
+											<li class="list-group-item">Helpful tips about campus events and evening
+												food spots.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="hidden-pane" role="tabpanel" aria-labelledby="hidden-tab"
+								tabindex="0">
+								<div class="card shadow-sm">
+									<div class="card-header bg-body-tertiary">
+										<div class="d-flex align-items-center gap-3">
+											<a href="profile.html">
+												<img src="https://cdn.pixabay.com/photo/2021/02/10/08/37/woman-6002254_1280.png"
+													alt="Guide profile" class="rounded-circle" width="56" height="56">
+											</a>
+											<div>
+												<p class="mb-1 small text-body-secondary">Guide host</p>
+												<h2 class="h6 mb-1">Priya Shah</h2>
+												<p class="mb-0 small text-body-secondary">Campus ambassador who
+													specializes in study resources and wellness spots.</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="row g-4">
+											<div class="col-12 col-lg-5">
+												<div id="carouselExampleInterval" class="carousel slide"
+													data-bs-ride="carousel">
+													<div class="carousel-inner">
+														<div class="carousel-item active" data-bs-interval="10000">
+															<img src="https://caves.org/wp-content/uploads/2021/10/Eginoire_VoidsExpedition2020_67.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item" data-bs-interval="2000">
+															<img src="https://caves.org/wp-content/uploads/2021/10/Eginoire_VoidsExpedition2020_67.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item">
+															<img src="https://caves.org/wp-content/uploads/2021/10/Eginoire_VoidsExpedition2020_67.jpg"
+																class="d-block w-100" alt="...">
+														</div>
+													</div>
+													<button class="carousel-control-prev" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+														<span class="carousel-control-prev-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Previous</span>
+													</button>
+													<button class="carousel-control-next" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+														<span class="carousel-control-next-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Next</span>
+													</button>
+												</div>
+											</div>
+											<div class="col-12 col-lg-7">
+												<h3 class="h4 mb-2">Hidden Corners Tour</h3>
+												<p class="text-body-secondary">Discover quiet courtyards, tucked-away
+													benches, and calm study corners most students miss in their first
+													year.</p>
+												<ul class="list-group mb-3">
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Time</span><span>2:30 PM</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Duration</span><span>60 minutes</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Location</span><span>Library Steps</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Students registered</span><span>11</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Capacity</span><span>15</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Open seats</span><span>4</span>
+													</li>
+												</ul>
+												<button class="btn btn-primary" type="button">Register</button>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-body-tertiary">
+										<h3 class="h6 mb-2">Reviews</h3>
+										<ul class="list-group">
+											<li class="list-group-item">Found two new places to study between classes.
+											</li>
+											<li class="list-group-item">Perfect for anyone who wants quieter campus
+												routes.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="freshman-pane" role="tabpanel" aria-labelledby="freshman-tab"
+								tabindex="0">
+								<div class="card shadow-sm">
+									<div class="card-header bg-body-tertiary">
+										<div class="d-flex align-items-center gap-3">
+											<a href="profile.html">
+												<img src="https://cdn.pixabay.com/photo/2022/03/10/16/44/male-7060004_1280.png"
+													alt="Guide profile" class="rounded-circle" width="56" height="56">
+											</a>
+											<div>
+												<p class="mb-1 small text-body-secondary">Guide host</p>
+												<h2 class="h6 mb-1">Miguel Torres</h2>
+												<p class="mb-0 small text-body-secondary">First-year mentor focused on
+													helping students navigate academics quickly.</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="row g-4">
+											<div class="col-12 col-lg-5">
+												<div id="carouselExampleInterval" class="carousel slide"
+													data-bs-ride="carousel">
+													<div class="carousel-inner">
+														<div class="carousel-item active" data-bs-interval="10000">
+															<img src="https://media.cntraveler.com/photos/664cf4aa7e18a346becc572d/master/w_1024%2Cc_limit/Fiji_GettyImages-1252162450.jpg" class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item" data-bs-interval="2000">
+															<img src="https://media.cntraveler.com/photos/664cf4aa7e18a346becc572d/master/w_1024%2Cc_limit/Fiji_GettyImages-1252162450.jpg" class="d-block w-100" alt="...">
+														</div>
+														<div class="carousel-item">
+															<img src="https://media.cntraveler.com/photos/664cf4aa7e18a346becc572d/master/w_1024%2Cc_limit/Fiji_GettyImages-1252162450.jpg" class="d-block w-100" alt="...">
+														</div>
+													</div>
+													<button class="carousel-control-prev" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+														<span class="carousel-control-prev-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Previous</span>
+													</button>
+													<button class="carousel-control-next" type="button"
+														data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+														<span class="carousel-control-next-icon"
+															aria-hidden="true"></span>
+														<span class="visually-hidden">Next</span>
+													</button>
+												</div>
+											</div>
+											<div class="col-12 col-lg-7">
+												<h3 class="h4 mb-2">Freshman Essentials</h3>
+												<p class="text-body-secondary">A practical starter tour covering key
+													classrooms, dining options, advising offices, and must-know student
+													services.</p>
+												<ul class="list-group mb-3">
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Time</span><span>10:00 AM</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Duration</span><span>90 minutes</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Location</span><span>Campus Fountain</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Students registered</span><span>22</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Capacity</span><span>25</span>
+													</li>
+													<li class="list-group-item d-flex justify-content-between">
+														<span>Open seats</span><span>3</span>
+													</li>
+												</ul>
+												<button class="btn btn-primary" type="button">Register</button>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-body-tertiary">
+										<h3 class="h6 mb-2">Reviews</h3>
+										<ul class="list-group">
+											<li class="list-group-item">Answered every first-week question I had.</li>
+											<li class="list-group-item">Very informative and easy to follow.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+</body>
+
+</html>
