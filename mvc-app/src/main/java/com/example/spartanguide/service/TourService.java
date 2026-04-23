@@ -64,7 +64,7 @@ public class TourService {
 			if (originalFileName != null && originalFileName.contains(".")) {
 				String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
 				String fileName = String.valueOf(tour.getTourId()) + "." + fileExtension;
-				String uploadDir = new ClassPathResource("static/tour-images/").getFile().getAbsolutePath() + "/";
+				String uploadDir = new ClassPathResource("static/tour-images/tour1.png").getFile().getParent() + "/";
 				Path filePath = Paths.get(uploadDir + fileName);
 				InputStream inputStream = image.getInputStream();
 				Files.createDirectories(Paths.get(uploadDir));

@@ -68,7 +68,7 @@ public class GuideService {
 			if (originalFileName != null && originalFileName.contains(".")) {
 				String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
 				String fileName = guide.getGuideId() + "." + fileExtension;
-				String uploadDir = new ClassPathResource("static/profile-pictures/").getFile().getAbsolutePath() + "/";
+				String uploadDir = new ClassPathResource("static/profile-pictures/avatar.png").getFile().getParent() + "/";
 				Path filePath = Paths.get(uploadDir + fileName);
 				InputStream inputStream = profilePicture.getInputStream();
 				Files.createDirectories(Paths.get(uploadDir));
